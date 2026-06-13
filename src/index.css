@@ -1,0 +1,145 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&family=Nunito+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: 'Be Vietnam Pro', 'Inter', sans-serif;
+    --font-sans: 'Nunito Sans', 'Inter', sans-serif;
+    --font-instrument: 'Instrument Serif', serif;
+    --font-inter: 'Inter', sans-serif;
+    
+    --color-pastel-blue-light: #E1EEFF;
+    --color-pastel-blue-deep: #A7C7E7;
+    --color-navy-muted: rgba(10, 25, 40, 0.75);
+    
+    --color-primary: #036686;
+    --color-primary-hover: #5ba4c7;
+    --color-primary-fixed: #c1e8ff;
+    --color-on-primary-fixed: #001e2b;
+    --color-surface-container-low: #f6f3ee;
+    --color-surface-container-high: #ebe8e3;
+    --color-on-surface: #1c1c19;
+    --color-on-surface-variant: #40484d;
+    --color-outline-variant: #bfc8ce;
+    --color-surface: #fcf9f4;
+    
+    --text-main: #1c1c19;
+    --text-muted: #40484d;
+
+    --color-background: #fcf9f4;
+    --color-foreground: #1c1c19;
+    --color-card: rgba(255, 255, 255, 0.45);
+    --color-card-foreground: #1c1c19;
+    --color-border: rgba(255, 255, 255, 0.6);
+
+    --radius-lg: 2rem;
+    --radius-md: 1rem;
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-20px) scale(1.05); }
+    }
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.1); }
+    }
+    @keyframes scroll-dot {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(10px); opacity: 0; }
+    }
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground min-h-screen font-sans;
+    background-color: #fcf9f4;
+  }
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    @apply font-heading font-semibold;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  .glass-portfolio {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  .glass-navy {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(3, 102, 134, 0.15);
+  }
+  .gradient-mesh {
+    background-color: #fcf9f4;
+    background-image: 
+        radial-gradient(at 0% 0%, hsla(197, 43%, 85%, 0.4) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(180, 25%, 90%, 0.4) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, hsla(38, 33%, 95%, 0.4) 0px, transparent 50%);
+  }
+  .progress-bar {
+    @apply fixed top-0 left-0 right-0 h-1 z-[100] origin-left;
+    background: linear-gradient(to right, #036686, #5ba4c7, #88d0f4);
+  }
+  .animate-float {
+    animation: float 10s ease-in-out infinite;
+  }
+  .animate-pulse-slow {
+    animation: pulse-slow 8s ease-in-out infinite;
+  }
+  .animate-scroll-dot {
+    animation: scroll-dot 2s ease-in-out infinite;
+  }
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+  .hero-gradient {
+    background: radial-gradient(circle at 0% 0%, rgba(167, 199, 231, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(13, 148, 136, 0.1) 0%, transparent 50%),
+                #020617;
+  }
+  .quantum-grid {
+    background-color: #020617;
+    background-image: 
+      linear-gradient(rgba(167, 199, 231, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(167, 199, 231, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    position: relative;
+  }
+  .quantum-grid::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 0%, #020617 80%);
+  }
+  .neural-ocean {
+    background-color: #fcf9f4;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-[#036686]/30 rounded-full;
+  }
+}
