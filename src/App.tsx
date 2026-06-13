@@ -2119,7 +2119,7 @@ const AppContent = () => {
 
 export default function App() {
   return (
-    <BrowserRouter basename="/uet-edu-vn-portfolio__25020385">
+    <BrowserRouter basename="/uet-edu-vn-portfolio_25020385">
       <div className="selection:bg-[#036686]/20">
         <AppContent />
       </div>
